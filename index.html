@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sushi Puzzle</title>
+    <link href="assets/css/style.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="icon" href="assets/img/sushi.png" type="image/x-icon">
+</head>
+<body>
+
+    <div class="main-card">
+        <header>
+            <div class="brand">
+                <h1>Sushi Puzzle</h1>
+                <p>Ropless galerisinden seç veya kendi görselini yükle.</p>
+            </div>
+            
+            <div class="controls">
+                <button id="galToggleBtn" class="btn-outline">GALERİ</button>
+                <label class="file-label btn-pink">GÖRSEL SEÇ<input type="file" id="imageInput" hidden accept="image/*"></label>
+                <button id="toggleHint" class="btn-grey">İPUCU: KAPALI</button>
+                <select id="difficulty">
+                    <option value="3">3x3 (Kolay)</option>
+                    <option value="4" selected>4x4 (Orta)</option>
+                    <option value="6">6x6 (Zor)</option>
+                    <option value="8">8x8 (Ropless)</option>
+                </select>
+                <button id="resetBtn" class="btn-grey">KARIŞTIR</button>
+            </div>
+        </header>
+
+        <div id="gallery-panel">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                <h3 style="margin: 0; font-size: 0.9rem; color: var(--text-main);">Ropless Galerisi</h3>
+                <span style="font-size: 0.7rem; color: var(--text-muted);">Seçmek için tıkla</span>
+            </div>
+            <div class="gallery-grid" id="galleryGrid"></div>
+        </div>
+
+        <div id="progress" class="progress-indicator">BAŞLAMAK İÇİN BİR GÖRSEL SEÇ</div>
+
+        <div id="game-area">
+            <div id="upload-placeholder" style="padding: 5rem 0; display: flex; flex-direction: column; align-items: center; justify-content: center; color: var(--text-muted); text-align: center;">
+                <div style="background: #f3f4f6; padding: 2rem; border-radius: 50%; margin-bottom: 1rem;">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#9ca3af" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+                </div>
+                <p style="font-weight: 600;">Görsel seçsene canımın içi...</p>
+            </div>
+            <canvas id="puzzleCanvas"></canvas>
+        </div>
+    </div>
+
+    <div id="winModal" class="win-modal-overlay">
+        <div class="win-modal-content">
+            <div class="win-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <h2>TEBRİKLER!</h2>
+            <p>Bütün başarımları aldın, puzzle tamamlandı.</p>
+            <button id="restartBtn" class="btn-pink" style="width: 100%; justify-content: center; padding: 1rem; font-size: 1rem;">YENİ OYUN BAŞLAT</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 | Sushi Puzzle</p>
+        <p>Sushi'nin tüm hakları Ropless'a aittir.</p>
+        <p>
+            <a href="https://twitch.tv/ropless_" target="_blank">
+                <i class="fa fa-twitch" aria-hidden="true"></i>
+            </a>
+            <a href="https://kick.com/ropless" target="_blank">
+                <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" style="height: 12px; margin: 0 0 -1px 0;">
+                    <path d="M37 .036h164.448v113.621h54.71v-56.82h54.731V.036h164.448v170.777h-54.73v56.82h-54.711v56.8h54.71v56.82h54.73V512.03H310.89v-56.82h-54.73v-56.8h-54.711v113.62H37V.036z" fill="rgb(227 204 223)"></path>
+                </svg>
+            </a>
+            <a href="https://instagram.com/silagokgol" target="_blank">
+                <i class="fa fa-instagram" aria-hidden="true"></i>
+            </a>
+            <a href="https://x.com/_Ropless_" target="_blank">
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+            </a>
+            <a href="https://discord.gg/ropless" target="_blank">
+                <i class="fab fa-discord" aria-hidden="true"></i>
+            </a>
+        </p>
+    </footer>
+
+    <script src="assets/js/app.js"></script>
+    <script src="https://kit.fontawesome.com/84add97b80.js" crossorigin="anonymous"></script>
+</body>
+</html>
